@@ -33,6 +33,7 @@ if (isset($_GET['std']) && $_GET['std'] == 'delete' && isset($_GET['std_code']))
                         title: "ลบข้อมูลนักศึกษาสำเร็จ",
                         type: "success"
                     }, function() {
+                    
                         window.location = "formAddSTD.php"; // กำหนดหน้าไปหลังจากลบ
                     });
                 }, 1000);
