@@ -13,14 +13,14 @@
 
 <?php
 // ตรวจสอบว่า GET request มี act และ act_id หรือไม่
-if (isset($_GET['act']) && $_GET['act'] == 'delete' && isset($_GET['std_code'])) {
-    $std_code = $_GET['std_code']; // รับรหัสนักศึกษาจาก URL
+if (isset($_GET['act']) && $_GET['act'] == 'delete' && isset($_GET['act_id'])) {
+    $act_id = $_GET['act_id']; // รับรหัสนักศึกษาจาก URL
     require_once 'connect.php'; // เชื่อมต่อกับฐานข้อมูล
 
     try {
         // เตรียมคำสั่ง SQL สำหรับการลบข้อมูล
-        $stmt = $conn->prepare("DELETE FROM tbl_std WHERE std_code = :std_code");
-        $stmt->bindParam(':std_code', $std_code, PDO::PARAM_STR);
+        $stmt = $conn->prepare("DELETE FROM tbl_activity WHERE act_id = :act_id");
+        $stmt->bindParam(':act_id', $act_id, PDO::PARAM_INT);
 
         // ดำเนินการลบข้อมูล
         $result = $stmt->execute();
@@ -33,7 +33,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'delete' && isset($_GET['std_code']))
                         title: "ลบข้อมูลนักศึกษาสำเร็จ",
                         type: "success"
                     }, function() {
-                        window.location = "formAddSTD.php"; // กำหนดหน้าไปหลังจากลบ
+                        window.location = "formAddACT.php"; // กำหนดหน้าไปหลังจากลบ
                     });
                 }, 1000);
             </script>';
@@ -45,7 +45,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'delete' && isset($_GET['std_code']))
                         text: "",
                         type: "warning"
                     }).then(function() {
-                        window.location = "formAddSTD.php"; // กำหนดหน้าไปหากไม่มีข้อมูล
+                        window.location = "formAddACT.php"; // กำหนดหน้าไปหากไม่มีข้อมูล
                     });
                 }, 1000);
             </script>';

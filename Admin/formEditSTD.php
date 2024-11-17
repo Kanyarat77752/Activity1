@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
   <head>
     <?php include('header.php'); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>PHP PDO Form Edit Student</title>
-    <!-- sweet alert -->
+    <title>แก้ไขข้อมูลนักศึกษา</title>
+    <!-- sweet alert  -->
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
@@ -30,7 +30,7 @@ if (isset($_GET['std_code'])) {
 
     // ตรวจสอบว่าพบข้อมูลหรือไม่
     if (!$student) {
-        echo "ไม่พบข้อมูลนักศึกษานี้";
+        echo "ไม่พบข้อมูลนักศึกษา";
         exit();
     }
 } else {
@@ -40,7 +40,6 @@ if (isset($_GET['std_code'])) {
 
 // ตรวจสอบการอัปเดตข้อมูลเมื่อส่งฟอร์ม
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $std_code = $_POST['std_code'];
     $std_group = $_POST['std_group'];
     $std_program = $_POST['std_program'];
     $std_prefix = $_POST['std_prefix'];
@@ -72,27 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // ตรวจสอบผลการอัปเดต
     if ($stmt->execute()) {
-        echo '<script>
-            setTimeout(function() {
-                swal({
-                    title: "แก้ไขข้อมูลสำเร็จ",
-                    type: "success"
-                }, function() {
-                    window.location = "formAddSTD.php"; // หน้าฟอร์มแก้ไขสำเร็จ
-                });
-            }, 1000);
-        </script>';
+        echo '<script>alert("แก้ไขข้อมูลสำเร็จ"); window.location.href = "formAddSTD.php";</script>';
     } else {
-        echo '<script>
-            setTimeout(function() {
-                swal({
-                    title: "เกิดข้อผิดพลาดในการแก้ไขข้อมูล",
-                    type: "error"
-                }, function() {
-                    window.location = "formAddSTD.php"; // หน้าฟอร์มแก้ไข
-                });
-            }, 1000);
-        </script>';
+        echo '<script>alert("เกิดข้อผิดพลาดในการแก้ไขข้อมูล");</script>';
     }
 }
 ?>
@@ -100,52 +81,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="container">
     <h3>ฟอร์มแก้ไขข้อมูลนักศึกษา</h3>
     <form method="post">
-        <input type="hidden" name="std_code" value="<?= htmlspecialchars($student['std_code']) ?>">
+        <div class="row mb-3">
+            <div class="col col-sm-2">
+                เลือกโปรแกรม
+                <select name="std_program" class="form-control" required>
+                    <option value="">-เลือกโปรแกรม-</option>
+                    <option value="ภาคปกติ" <?= $student['std_program'] == 'ภาคปกติ' ? 'selected' : '' ?>>ภาคปกติ</option>
+                    <option value="ภาคกศบ." <?= $student['std_program'] == 'ภาคกศบ.' ? 'selected' : '' ?>>ภาคกศบ.</option>
+                </select>
+            </div>
 
-        <div class="mb-3">
-            <label>โปรแกรมการศึกษา</label>
-            <select name="std_program" class="form-control" required>
-                <option value="ภาคปกติ" <?= $student['std_program'] == 'ภาคปกติ' ? 'selected' : '' ?>>ภาคปกติ</option>
-                <option value="ภาคกศบ." <?= $student['std_program'] == 'ภาคกศบ.' ? 'selected' : '' ?>>ภาคกศบ.</option>
-            </select>
+            <div class="col col-sm-5">
+                รหัสนักศึกษา
+                <input type="text" name="std_code" class="form-control" value="<?= $student['std_code'] ?>" readonly>
+            </div>
+            <div class="col col-sm-5">
+                หมู่เรียน
+                <input type="text" name="std_group" class="form-control" value="<?= $student['std_group'] ?>" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col col-sm-2">
+                คำนำหน้าชื่อ
+                <select name="std_prefix" class="form-control" required>
+                    <option value="">-คำนำหน้าชื่อ-</option>
+                    <option value="นาย" <?= $student['std_prefix'] == 'นาย' ? 'selected' : '' ?>>นาย</option>
+                    <option value="นางสาว" <?= $student['std_prefix'] == 'นางสาว' ? 'selected' : '' ?>>นางสาว</option>
+                    <option value="นาง" <?= $student['std_prefix'] == 'นาง' ? 'selected' : '' ?>>นาง</option>
+                </select>
+            </div>
+
+            <div class="col col-sm-4">
+                ชื่อ
+                <input type="text" name="std_name" class="form-control" value="<?= $student['std_name'] ?>" required>
+            </div>
+            <div class="col col-sm-6">
+                นามสกุล
+                <input type="text" name="std_lastname" class="form-control" value="<?= $student['std_lastname'] ?>" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                เบอร์โทร
+                <input type="tel" name="std_phone" class="form-control" value="<?= $student['std_phone'] ?>" required minlength="10" maxlength="10">
+            </div>
+            <div class="col">
+                อีเมล
+                <input type="email" name="std_email" class="form-control" value="<?= $student['std_email'] ?>" required>
+            </div>
+        </div>
+        <div class="d-grid gap-2 col-12 mx-auto">
+            <button type="submit" class="btn btn-primary">บันทึกการแก้ไข</button>
+            <a href="formAddSTD.php" class="btn btn-secondary">ยกเลิก</a>
         </div>
 
-        <div class="mb-3">
-            <label>หมู่เรียน</label>
-            <input type="text" name="std_group" class="form-control" value="<?= htmlspecialchars($student['std_group']) ?>" required>
-        </div>
 
-        <div class="mb-3">
-            <label>คำนำหน้าชื่อ</label>
-            <select name="std_prefix" class="form-control" required>
-                <option value="นาย" <?= $student['std_prefix'] == 'นาย' ? 'selected' : '' ?>>นาย</option>
-                <option value="นางสาว" <?= $student['std_prefix'] == 'นางสาว' ? 'selected' : '' ?>>นางสาว</option>
-                <option value="นาง" <?= $student['std_prefix'] == 'นาง' ? 'selected' : '' ?>>นาง</option>
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label>ชื่อ</label>
-            <input type="text" name="std_name" class="form-control" value="<?= htmlspecialchars($student['std_name']) ?>" required>
-        </div>
-
-        <div class="mb-3">
-            <label>นามสกุล</label>
-            <input type="text" name="std_lastname" class="form-control" value="<?= htmlspecialchars($student['std_lastname']) ?>" required>
-        </div>
-
-        <div class="mb-3">
-            <label>เบอร์โทรศัพท์</label>
-            <input type="text" name="std_phone" class="form-control" value="<?= htmlspecialchars($student['std_phone']) ?>" required>
-        </div>
-
-        <div class="mb-3">
-            <label>อีเมล</label>
-            <input type="email" name="std_email" class="form-control" value="<?= htmlspecialchars($student['std_email']) ?>" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">บันทึกการแก้ไข</button>
-        <a href="formAddSTD.php" class="btn btn-secondary">ยกเลิก</a>
     </form>
 </div>
 

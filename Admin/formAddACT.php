@@ -11,6 +11,8 @@
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+
 
 
   </head>
@@ -23,7 +25,10 @@
           <?php
           //ถ้ามีการส่งพารามิเตอร์ method get และ  method get ชือ act = add จะแสดงฟอร์มเพิ่มข้อมูล
           if(isset($_GET['act']) && $_GET['act']=='add'){ ?>
-          <h3> ฟอร์มเพิ่มข้อมูลกิจกรรม </h3>
+  <h3 style="font-family: 'Prompt', sans-serif; font-size: 26px; color: #003366; font-weight: 600; text-align: center; margin-bottom: 15px;">
+    ฟอร์มเพิ่มข้อมูลกิจกรรม
+</h3>
+
           <form  method="post">
             <div class="row mb-3">
       
@@ -114,9 +119,14 @@
           </form>
           <?php } ?>
           <br> 
-          <h5>ข้อมูลกิจกรรม
-          <a href="formAddACT.php?act=add" class="btn btn-success btn-sm">+เพิ่มข้อมูล</a> </h5>
-          <div class="table-responsive">
+          <div style="display: flex; align-items: center;">
+          
+    <h3 style="font-family: 'Prompt', sans-serif; font-size: 20px; color: #003366; font-weight: bold; margin-right: 10px;">
+        ข้อมูลกิจกรรม
+    </h3>
+    <a href="formAddACT.php?act=add" class="btn btn-success btn-sm">+เพิ่มข้อมูล</a>
+</div>
+
            <table class="table table-striped  table-hover table-responsive table-bordered">
             <thead>
               <tr class="table-danger">

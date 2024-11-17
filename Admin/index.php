@@ -86,13 +86,13 @@
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/ad.jpg" alt="Profile" class="rounded-circle">
             
-            <span class="d-none d-md-block dropdown-toggle ps-2" style="font-size: 16px;color: #004aad(51, 108, 194);">ผู้ดูเเลระบบ/อาจารย์</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2" style="font-size: 16px;color: #004aad(51, 108, 194);">ผู้ดูเเลระบบ</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>ผู้ดูเเลระบบ/อาจารย์</h6>
-              <span>ผู้ดูเเลระบบ/อาจารย์</span>
+              <h6>ผู้ดูเเลระบบ</h6>
+              <span>ผู้ดูเเลระบบ</span>
             </li>
             <li>
               <hr class="dropdown-divider">

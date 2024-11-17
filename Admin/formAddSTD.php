@@ -113,9 +113,10 @@
                 <td><?= $row['std_email'];?></td>
                 <td>
                   <!-- ปุ่มแก้ไข -->
-                  <a href="formEditACT.php?std_code=<?= $row['std_code']; ?>" class="btn btn-warning btn-sm">แก้ไข</a>
+                  <a href="formEditSTD.php?std_code=<?= $row['std_code']; ?>" class="btn btn-warning btn-sm">แก้ไข</a>
+                  
                   <!-- ปุ่มลบ -->
-                  <a href="delSTD.php?std_code=<?= $row['std_code']; ?>" class="btn btn-danger btn-sm" >ลบ</a>
+                  <a href="delSTD.php?std_id=<?= $row['std_id']; ?>" class="btn btn-danger btn-sm" >ลบ</a>
                 </td>
 
                 <?php } ?>
