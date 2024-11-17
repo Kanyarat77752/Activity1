@@ -1,40 +1,35 @@
-<head>
-  <?php include('header.php'); ?>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>ระบบจัดการข้อมูลนักศึกษา</title>
-    <!-- sweet alert  -->
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+<?php include('header.php'); ?>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+ <title>ระบบจัดการข้อมูลนักศึกษา</title>
+ <!-- sweet alert  -->
+ <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 </head>
 
 <?php
-// ตรวจสอบว่า GET request มี act และ act_id หรือไม่
-if (isset($_GET['std']) && $_GET['std'] == 'delete' && isset($_GET['std_code'])) {
-    $std_code = $_GET['std_code']; // รับรหัสนักศึกษาจาก URL
-    require_once 'connect.php'; // เชื่อมต่อกับฐานข้อมูล
+// ตรวจสอบว่ามีการส่งค่า std_id มาหรือไม่
+if (isset($_GET['std_id'])) {
+    $std_id = $_GET['std_id']; // รับค่า std_id จาก URL
+    require_once 'connect.php'; // เชื่อมต่อฐานข้อมูล
 
     try {
-        // เตรียมคำสั่ง SQL สำหรับการลบข้อมูล
-        $stmt = $conn->prepare("DELETE FROM tbl_std WHERE std_code = :std_code");
-        $stmt->bindParam(':std_code', $std_code, PDO::PARAM_STR);
+        // เตรียมคำสั่ง SQL สำหรับลบข้อมูลโดยใช้ std_id
+        $stmt = $conn->prepare("DELETE FROM tbl_std WHERE std_id = :std_id");
+        $stmt->bindParam(':std_id', $std_id, PDO::PARAM_INT);
 
         // ดำเนินการลบข้อมูล
-        $result = $stmt->execute();
-
-        // ตรวจสอบผลการลบข้อมูล
-        if ($result) {
+        if ($stmt->execute()) {
             echo '<script>
                 setTimeout(function() {
                     swal({
-                        title: "ลบข้อมูลนักศึกษาสำเร็จ",
+                        title: "ลบข้อมูลสำเร็จ",
                         type: "success"
                     }, function() {
-                    
-                        window.location = "formAddSTD.php"; // กำหนดหน้าไปหลังจากลบ
+                        window.location = "formAddSTD.php"; // เปลี่ยนไปหน้าที่ต้องการหลังลบ
                     });
                 }, 1000);
             </script>';
@@ -42,16 +37,14 @@ if (isset($_GET['std']) && $_GET['std'] == 'delete' && isset($_GET['std_code']))
             echo '<script>
                 setTimeout(function() {
                     swal({
-                        title: "ไม่พบข้อมูลที่ต้องการลบ",
-                        text: "",
-                        type: "warning"
-                    }).then(function() {
-                        window.location = "formAddSTD.php"; // กำหนดหน้าไปหากไม่มีข้อมูล
+                        title: "ลบข้อมูลไม่สำเร็จ",
+                        type: "error"
+                    }, function() {
+                        window.location = "formAddSTD.php"; // กลับไปหน้าหลัก
                     });
                 }, 1000);
             </script>';
         }
-        exit();
     } catch (PDOException $e) {
         echo '<script>
             setTimeout(function() {
@@ -59,12 +52,11 @@ if (isset($_GET['std']) && $_GET['std'] == 'delete' && isset($_GET['std_code']))
                     title: "เกิดข้อผิดพลาด",
                     text: "' . $e->getMessage() . '",
                     type: "error"
-                }).then(function() {
-                    window.location.href = "formAddSTD.php"; // กำหนดหน้าไปหากเกิดข้อผิดพลาด
+                }, function() {
+                    window.location = "formAddSTD.php"; // กลับไปหน้าหลัก
                 });
             }, 1000);
         </script>';
-        exit();
     }
 }
 ?>

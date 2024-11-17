@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-  <?php include('header.php'); ?>
+<html lang="th">
+<head>
+    <?php include('header.php'); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>PHP PDO Form add Student by devbanban.com 2022</title>
+    <title>แก้ไขข้อมูลกิจกรรม</title>
     <!-- sweet alert  -->
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-
-
-  </head>
-  <body>
+</head>
+<body>
 
 <?php
 // เชื่อมต่อฐานข้อมูล
@@ -92,57 +90,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="container">
     <h3>ฟอร์มแก้ไขข้อมูลกิจกรรม</h3>
     <form method="post">
-        <div class="mb-3">
-            <label>ชื่อกิจกรรม</label>
-            <input type="text" name="act_name" class="form-control" value="<?= $activity['act_name'] ?>" required>
+        <div class="row mb-3">
+            <div class="col col-sm-4">
+                ชื่อกิจกรรม
+                <input type="text" name="act_name" class="form-control" value="<?= $activity['act_name'] ?>" required>
+            </div>
+            <div class="col col-sm-4">
+                ปีการศึกษา
+                <input type="text" name="act_year" class="form-control" value="<?= $activity['act_year'] ?>" required>
+            </div>
+            <div class="col col-sm-4">
+                จำนวนชั่วโมง
+                <input type="number" name="act_hour" class="form-control" value="<?= $activity['act_hour'] ?>" required>
+            </div>
         </div>
-        <div class="mb-3">
-            <label>ปีการศึกษา</label>
-            <input type="text" name="act_year" class="form-control" value="<?= $activity['act_year'] ?>" required>
+        <div class="row mb-3">
+            <div class="col col-sm-4">
+                วัน
+                <input type="date" name="act_day" class="form-control" value="<?= $activity['act_day'] ?>" required>
+            </div>
+            <div class="col col-sm-4">
+                เวลา
+                <input type="text" name="act_time" class="form-control" value="<?= $activity['act_time'] ?>" required>
+            </div>
+            <div class="col col-sm-4">
+                จำนวนนักศึกษา
+                <input type="number" name="act_number" class="form-control" value="<?= $activity['act_number'] ?>" required>
+            </div>
         </div>
-        <div class="mb-3">
-            <label>จำนวนชั่วโมง</label>
-            <input type="number" name="act_hour" class="form-control" value="<?= $activity['act_hour'] ?>" required>
+        <div class="row mb-3">
+            <div class="col col-sm-4">
+                สถานะการจัดกิจกรรม
+                <select name="act_status" class="form-control" required>
+                    <option value="1" <?= $activity['act_status'] == 1 ? 'selected' : '' ?>>กิจกรรมอยู่ระหว่างดำเนินการ</option>
+                    <option value="2" <?= $activity['act_status'] == 2 ? 'selected' : '' ?>>กิจกรรมได้จัดขึ้นแล้ว</option>
+                    <option value="3" <?= $activity['act_status'] == 3 ? 'selected' : '' ?>>สร้าง Token แล้ว</option>
+                    <option value="0" <?= $activity['act_status'] == 0 ? 'selected' : '' ?>>ยกเลิกกิจกรรม</option>
+                </select>
+            </div>
+            <div class="col col-sm-4">
+                ชื่ออาจารย์ผู้จัดกิจกรรม
+                <input type="text" name="act_lecturer" class="form-control" value="<?= $activity['act_lecturer'] ?>" required>
+            </div>
+            <div class="col col-sm-4">
+                เบอร์โทรติดต่อ
+                <input type="text" name="act_phone" class="form-control" value="<?= $activity['act_phone'] ?>" required>
+            </div>
         </div>
-        <div class="mb-3">
-            <label>วัน</label>
-            <input type="date" name="act_day" class="form-control" value="<?= $activity['act_day'] ?>" required>
+        <div class="row mb-3">
+            <div class="col col-sm-12">
+                รายละเอียดการจัดกิจกรรม
+                <input type="text" name="act_details" class="form-control" value="<?= $activity['act_details'] ?>" required>
+            </div>
         </div>
-        <div class="mb-3">
-            <label>เวลา</label>
-            <input type="text" name="act_time" class="form-control" value="<?= $activity['act_time'] ?>" required>
+        <div class="d-grid gap-2 col-12 mx-auto">
+            <button type="submit" class="btn btn-primary">บันทึกการแก้ไข</button>
+            <a href="formAddACT.php" class="btn btn-secondary">ยกเลิก</a>
         </div>
-        <div class="mb-3">
-            <label>จำนวนนักศึกษา</label>
-            <input type="number" name="act_number" class="form-control" value="<?= $activity['act_number'] ?>" required>
-        </div>
-        <div class="mb-3">
-            <label>สถานะการจัดกิจกรรม</label>
-            <select name="act_status" class="form-control" required>
-                <option value="1" <?= $activity['act_status'] == 1 ? 'selected' : '' ?>>กิจกรรมอยู่ระหว่างดำเนินการ</option>
-                <option value="2" <?= $activity['act_status'] == 2 ? 'selected' : '' ?>>กิจกรรมได้จัดขึ้นแล้ว</option>
-                <option value="3" <?= $activity['act_status'] == 3 ? 'selected' : '' ?>>สร้าง Token แล้ว</option>
-                <option value="0" <?= $activity['act_status'] == 0 ? 'selected' : '' ?>>ยกเลิกกิจกรรม</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label>ชื่ออาจารย์ผู้จัดกิจกรรม</label>
-            <input type="text" name="act_lecturer" class="form-control" value="<?= $activity['act_lecturer'] ?>" required>
-        </div>
-        <div class="mb-3">
-            <label>เบอร์โทรติดต่อ</label>
-            <input type="text" name="act_phone" class="form-control" value="<?= $activity['act_phone'] ?>" required>
-        </div>
-        
-        <div class="mb-3">
-            <label>รายละเอียดการจัดกิจกรรม</label>
-            <input type="text" name="act_details" class="form-control" value="<?= $activity['act_details'] ?>" required>
-        </div>
-
-        
-        <button type="submit" class="btn btn-primary">บันทึกการแก้ไข</button>
-        <a href="formAddACT.php" class="btn btn-secondary">ยกเลิก</a>
     </form>
 </div>
+
 </body>
 </html>
