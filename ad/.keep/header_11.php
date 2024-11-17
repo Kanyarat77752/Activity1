@@ -14,7 +14,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect">m
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -74,7 +74,7 @@
             </li>
 
             <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
+             
             </li>
 
           </ul><!-- End Messages Dropdown Items -->
@@ -138,100 +138,98 @@
   </header><!-- End Header -->
   
 
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
+   <!-- ======= Sidebar ======= -->
+   <aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+<ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
-          <i class="bi bi-house"></i>
-          <span>หน้าเเรก</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="index.html">
+      <i class="bi bi-house"></i>
+      <span>หน้าเเรก</span>
+    </a>
+  </li><!-- End Profile Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="formAddACT.php">
-          <i class="bi bi-pencil"></i>
-          <span>จัดการข้อมูลกิจกรรม</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="formAddACT.php">
+      <i class="bi bi-pencil"></i>
+      <span>จัดการข้อมูลกิจกรรม</span>
+    </a>
+  </li><!-- End F.A.Q Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="formAddACT.php">
-          <i class="bi bi-pencil"></i>
-          <span>สร้างรหัส Token Key</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="formAddSTD.php">
-          <i class="bi bi-pencil"></i>
-          <span>จัดการข้อมูลนักศึกษา</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-search"></i>
-          <span>ค้นหาข้อมูลนักศึกษา</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>รายงานการเข้าร่วมกิจกรรม</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      
-    </ul>
-
-  </aside><!-- End Sidebar-->
-
-  <main id="main" class="main">
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="formAddACT.php">
+      <i class="bi bi-pencil"></i>
+      <span>สร้างรหัส Token Key</span>
+    </a>
+  </li><!-- End F.A.Q Page Nav -->
 
 
-    <section class="section dashboard">
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="formAddSTD.php">
+      <i class="bi bi-pencil"></i>
+      <span>จัดการข้อมูลนักศึกษา</span>
+    </a>
+  </li><!-- End F.A.Q Page Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="pages-contact.html">
+      <i class="bi bi-search"></i>
+      <span>ค้นหาข้อมูลนักศึกษา</span>
+    </a>
+  </li><!-- End Contact Page Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="pages-register.html">
+      <i class="bi bi-card-list"></i>
+      <span>รายงานการเข้าร่วมกิจกรรม</span>
+    </a>
+  </li><!-- End Register Page Nav -->
+
+  
+</ul>
+
+</aside><!-- End Sidebar-->
+
+<main id="main" class="main">
+
+
+<section class="section dashboard">
+  <div class="row">
+
+    <!-- Left side columns -->
+    <div class="col-lg-8">
       <div class="row">
+          </div><!-- End sidebar recent posts-->
 
-        <!-- Left side columns -->
-        <div class="col-lg-8">
-          <div class="row">
-              </div><!-- End sidebar recent posts-->
+        </div>
+      </div><!-- End News & Updates -->
 
-            </div>
-          </div><!-- End News & Updates -->
+    </div><!-- End Right side columns -->
 
-        </div><!-- End Right side columns -->
-
-      </div>
-    </section>
- <!-- Template Main JS File -->
- <script src="assets/js/main.js"></script>
- <img src="assets/img/p1.png" width="1190" height="650" alt="Bootstrap" class="d-none d-sm-block  mx-auto mb-30"> 
-
-  </main><!-- End #main -->
-
- 
+  </div>
+</section>
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+</main><!-- End #main -->
 
 
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  
 
-  
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.umd.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+
+
+
 
 </body>
 
