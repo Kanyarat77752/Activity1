@@ -36,7 +36,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="password" placeholder="รหัสผ่าน" />
+                                <input type="password" name="password" id="password" placeholder="Password" />
                             </div>
                             <!-- <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />

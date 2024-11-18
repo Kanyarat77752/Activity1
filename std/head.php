@@ -1,6 +1,6 @@
 <?php
 include_once('./../connect.php');
-if ($_SESSION["USER_TYPE"] != "AD") {
+if ($_SESSION["USER_TYPE"] != "STD") {
   header("Location: ./login.php");
 }
 ?>
