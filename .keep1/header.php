@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>ระบบจัดการข้อมูลกิจกรรมนักศึกษา</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/bcd.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -41,10 +41,10 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center" style="background-color: #ffffff; color: #f5f5f5;">
+  <header id="header" class="header fixed-top d-flex align-items-center bg-light text-light">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/bcd.png" alt ="Logo" style="width: 30px; height: 50px;"> 
         <span  style="font-size: 22px;color: #004aad(14, 24, 205);">ระบบกิจกรรมนักศึกษา</span>
       
@@ -74,7 +74,7 @@
             </li>
 
             <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
+             
             </li>
 
           </ul><!-- End Messages Dropdown Items -->
@@ -84,14 +84,14 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile.png" alt="Profile" class="rounded-circle">
+            <img src="assets/img/ad.jpg" alt="Profile" class="rounded-circle">
             
-            <span class="d-none d-md-block dropdown-toggle ps-2" style="font-size: 16px;color: #004aad(51, 108, 194);">กัลยรัตน์ อาจปาสา</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2" style="font-size: 16px;color: #004aad(51, 108, 194);">นักศึกษา</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>กัลยรัตน์ อาจปาสา</h6>
+              <h6>นักศึกษา</h6>
               <span>นักศึกษา</span>
             </li>
             <li>
@@ -119,15 +119,15 @@
             </li>
 
             <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>ออกจากระบบ</span>
               </a>
             </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
 
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
@@ -136,90 +136,93 @@
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
-  
 
-  <!-- ======= Sidebar ======= -->
+     <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+<ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-house"></i>
-          <span>หน้าเเรก</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="users-profile.html">
+      <i class="bi bi-house"></i>
+      <span>หน้าเเรก</span>
+    </a>
+  </li><!-- End Profile Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-calendar-week"></i>
-          <span>ข้อมูลกิจกรรม</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="pages-faq.php">
+      <i class="bi bi-calendar-week"></i>
+      <span>ข้อมูลกิจกรรม</span>
+    </a>
+  </li><!-- End F.A.Q Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>เข้าร่วมชั่วโมงกิจกรรม</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="pages-contact.html">
+      <i class="bi bi-file-earmark"></i>
+      <span>บันทึกชั่วโมงกิจกรรม</span>
+    </a>
+  </li><!-- End Contact Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>รายงานการเข้าร่วมกิจกรรม</span>
-        </a>
-      </li><!-- End Register Page Nav -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="pages-register.html">
+      <i class="bi bi-card-list"></i>
+      <span>รายงานการเข้าร่วมกิจกรรม</span>
+    </a>
+  </li><!-- End Register Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-pencil"></i>
-          <span>แก้ไขข้อมูลส่วนตัว</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-    </ul>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="pages-login.html">
+      <i class="bi bi-pencil"></i>
+      <span>แก้ไขข้อมูลส่วนตัว</span>
+    </a>
+  </li><!-- End Login Page Nav -->
 
-  </aside><!-- End Sidebar-->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="pages-login.html">
+      <i class="bi bi-box-arrow-right"></i>
+      <span>ออกจากระบบ</span>
+    </a>
+  </li><!-- End Login Page Nav -->
 
-  <main id="main" class="main">
+</ul>
+
+</aside><!-- End Sidebar-->
+
+<main id="main" class="main">
 
 
-    <section class="section dashboard">
+<section class="section dashboard">
+  <div class="row">
+
+    <!-- Left side columns -->
+    <div class="col-lg-8">
       <div class="row">
+          </div><!-- End sidebar recent posts-->
 
-        <!-- Left side columns -->
-        <div class="col-lg-8">
-          <div class="row">
-              </div><!-- End sidebar recent posts-->
+        </div>
+      </div><!-- End News & Updates -->
 
-            </div>
-          </div><!-- End News & Updates -->
+    </div><!-- End Right side columns -->
 
-        </div><!-- End Right side columns -->
+  </div>
+</section>
+<!-- Template Main JS File -->
 
-      </div>
-    </section>
- 
-  </main><!-- End #main -->
+<script src="assets/js/main.js"></script>
 
- 
+
+</main><!-- End #main -->
 
 
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  
 
-  
-
-</body>
-
-</html>
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.umd.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>

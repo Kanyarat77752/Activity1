@@ -9,7 +9,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     if ($_row) {
 
         $_SESSION["USER"] = $_row;
-        $_SESSION["USER_TYPE"] = "AD";
+        $_SESSION["USER_TYPE"] = "TCH";
 
 
         header("Location: ./../index.php");
