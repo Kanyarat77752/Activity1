@@ -30,7 +30,7 @@ try {
     $tbl_tch = $conn->query("SELECT * FROM `tbl_tch` WHERE  tch_id='$tch_id'", PDO::FETCH_OBJ)->fetch(PDO::FETCH_OBJ);
     $act_phone = $tbl_tch->thc_phone ?? '';
 
-    $sql = "UPDATE `tbl_activity` SET   `act_name` = '$act_name', 
+    $sql = "UPDATE `tb_acltivity` SET   `act_name` = '$act_name', 
                                         `act_year` = '$act_year',   
                                         `act_hour` = '$act_hour', 
                                         `act_day` = '$act_day', 

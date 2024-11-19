@@ -40,12 +40,13 @@
                         <?php
                         //เรียกไฟล์เชื่อมต่อฐานข้อมูล
                         //คิวรี่ข้อมูลมาแสดงในตาราง
-                        $result = $conn->query("SELECT* FROM tbl_activity WHERE act_delete IS NULL  ORDER BY `act_day` DESC ", PDO::FETCH_OBJ)->fetchAll(PDO::FETCH_OBJ);
+                        $result = $conn->query("SELECT* FROM tbl_activity WHERE act_delete IS NULL  ", PDO::FETCH_OBJ)->fetchAll(PDO::FETCH_OBJ);
                         foreach ($result as $key => $row) :
                             $tbl_tch = $conn->query("SELECT * FROM `tbl_tch` WHERE  tch_id='$row->tch_id'", PDO::FETCH_OBJ)->fetch(PDO::FETCH_OBJ);
                             $tbl_bookingdata = $conn->query("SELECT * FROM `tbl_bookingdata` WHERE  act_id='$row->act_id'", PDO::FETCH_OBJ)->fetchAll(PDO::FETCH_OBJ);
                             $tbl_registrationdata = $conn->query("SELECT * FROM `tbl_registrationdata` WHERE  act_id='$row->act_id'", PDO::FETCH_OBJ)->fetchAll(PDO::FETCH_OBJ);
                         ?>
+
                             <tr>
                                 <td class="text-center"><?= $key + 1; ?></td>
                                 <td class="text-center"><?= $row->act_name; ?></td>
@@ -56,7 +57,7 @@
                                 <td class="text-center"><?= $row->act_number; ?></td>
                                 <td class="text-center"><?= count($tbl_bookingdata) ?></td>
                                 <td class="text-center"><?= count($tbl_registrationdata) ?></td>
-                                <td class="text-center"><?= $tbl_tch->thc_fname . " " . $tbl_tch->thc_lname;; ?></td>
+                                <td class="text-center"><?= $tbl_tch->thc_fname . " " . $tbl_tch->thc_lname; ?></td>
                                 <td class="text-center"><?= $row->act_phone; ?></td>
                                 <td class="text-center"><?= $row->act_details; ?></td>
                                 <td class="text-center">
@@ -120,8 +121,9 @@
                                                             <option value="" selected>-กรุณาเลือกอาจารย์ผู้จัดกิจกรรม-</option>
                                                             <?php $items_tch = $conn->query("SELECT * FROM `tbl_tch` WHERE thc_delete IS NULL ", PDO::FETCH_OBJ)->fetchAll(PDO::FETCH_OBJ); ?>
                                                             <?php foreach ($items_tch as $item) : ?>
-                                                                <option <?= $row->tch_id == $row->tch_id  ? "selected" : "" ?> value="<?= $item->tch_id; ?>"><?= $item->thc_fname . " " . $item->thc_lname; ?></option>
-                                                            <?php endforeach ?>
+                                                                <option <?= $row->tch_id == $item->tch_id  ? "selected" : "" ?> value="<?= $item->tch_id; ?>"><?= $item->thc_fname . " " . $item->thc_lname; ?></option>
+                    
+                                                                <?php endforeach ?>
                                                         </select>
                                                     </div>
                                                     <div class="col col-sm-12">

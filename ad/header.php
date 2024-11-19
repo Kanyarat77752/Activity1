@@ -1,12 +1,10 @@
-  <!-- ======= Header ======= -->
+ 4 <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center bg-light text-light">
 
       <div class="d-flex align-items-center justify-content-between">
           <a href="index.php" class="logo d-flex align-items-center">
               <img src="./../assets/img/bcd.png" alt="Logo" style="width: 30px; height: 50px;">
               <span style="font-size: 22px;color: #004aad(14, 24, 205);">ระบบกิจกรรมนักศึกษา</span>
-
-
           </a>
           <i class="bi bi-list toggle-sidebar-btn" style="font-size: 28px;color: #004aad(250, 250, 250);"></i>
       </div><!-- End Logo -->
@@ -57,7 +55,7 @@
                       </li>
                       <li>
                           <a class="dropdown-item d-flex align-items-center" href="./">
-                              <i class="bi bi-person"></i>
+                            <i class="bi bi-person"></i>
                               <span>ข้อมูลส่วนตัว</span>
                           </a>
                       </li>
