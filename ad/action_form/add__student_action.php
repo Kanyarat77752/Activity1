@@ -12,6 +12,7 @@ $std_email = null;
 $std_pass = null;
 
 try {
+
     $std_code = $_POST["std_code"];
     $std_group = $_POST["std_group"];
     $std_program = $_POST["std_program"];
@@ -24,7 +25,8 @@ try {
 
     $sql = "INSERT INTO `tbl_std` (`std_id`, `std_code`, `std_group`, `std_program`, `std_prefix`, `std_name`, `std_lastname`, `std_phone`, `std_email`, `std_pass`, `std_delete`) 
                                 VALUES (NULL, '$std_code', '$std_group', '$std_program', '$std_prefix', '$std_name', '$std_lastname', '$std_phone', '$std_email', '$std_pass', NULL);";
-    $insert = $conn->query($sql);
+    $insert = $conn->query($sql); ///  query
+
     if ($insert) {
         $_SESSION["SUCCESS"] = "บันทึกข้อมูลสำเร็จ";
         unset($_SESSION["ERROR"]);

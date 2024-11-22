@@ -7,7 +7,7 @@ try {
 
     $sql = "UPDATE `tbl_std` SET `std_delete` = '1' WHERE `tbl_std`.`std_id` = '$std_id';";
     $insert = $conn->query($sql);
-
+    
     if ($insert) {
         $_SESSION["SUCCESS"] = "บันทึกข้อมูลสำเร็จ";
         unset($_SESSION["ERROR"]);

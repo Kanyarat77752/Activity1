@@ -28,7 +28,7 @@ try {
     $act_phone = $tbl_tch->thc_phone ?? '';
 
     $sql = "INSERT INTO `tbl_activity` (`act_id`, `act_name`, `act_year`, `act_hour`, `act_day`, `act_time`, `act_number`, `act_status`, `tch_id`, `act_phone`, `act_details`, `act_delete`, `adm_id`, `act_stamp`) 
-                                    VALUES (NULL, '$act_name', '$act_year', '$act_hour', '$act_day', '$act_time', '$act_number', '1', '$tch_id', '$act_phone', '$act_details', NULL, '1', current_timestamp());";
+                        VALUES (NULL, '$act_name', '$act_year', '$act_hour', '$act_day', '$act_time', '$act_number', '1', '$tch_id', '$act_phone', '$act_details', NULL, '1', current_timestamp());";
     $insert = $conn->query($sql);
 
     if ($insert) {
