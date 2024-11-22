@@ -43,8 +43,7 @@
                         $result = $conn->query("SELECT* FROM tbl_activity WHERE act_delete IS NULL  ", PDO::FETCH_OBJ)->fetchAll(PDO::FETCH_OBJ);
                         foreach ($result as $key => $row) :
                             $tbl_tch = $conn->query("SELECT * FROM `tbl_tch` WHERE  tch_id='$row->tch_id'", PDO::FETCH_OBJ)->fetch(PDO::FETCH_OBJ);
-                            $tbl_bookingdata = $conn->query("SELECT * FROM `tbl_bookingdata` WHERE  act_id='$row->act_id'", PDO::FETCH_OBJ)->fetchAll(PDO::FETCH_OBJ);
-                            $tbl_registrationdata = $conn->query("SELECT * FROM `tbl_registrationdata` WHERE  act_id='$row->act_id'", PDO::FETCH_OBJ)->fetchAll(PDO::FETCH_OBJ);
+                            
                         ?>
 
                             <tr>
@@ -55,8 +54,8 @@
                                 <td class="text-center"><?= date("d-m-Y", strtotime($row->act_day)); ?></td>
                                 <td class="text-center"><?= $row->act_time; ?></td>
                                 <td class="text-center"><?= $row->act_number; ?></td>
-                                <td class="text-center"><?= count($tbl_bookingdata) ?></td>
-                                <td class="text-center"><?= count($tbl_registrationdata) ?></td>
+                                <td class="text-center"></td>
+                                <td class="text-center"></td>
                                 <td class="text-center"><?= $tbl_tch->thc_fname . " " . $tbl_tch->thc_lname; ?></td>
                                 <td class="text-center"><?= $row->act_phone; ?></td>
                                 <td class="text-center"><?= $row->act_details; ?></td>
