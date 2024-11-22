@@ -46,6 +46,8 @@
                             
                         ?>
 
+                        
+
                             <tr>
                                 <td class="text-center"><?= $key + 1; ?></td>
                                 <td class="text-center"><?= $row->act_name; ?></td>
